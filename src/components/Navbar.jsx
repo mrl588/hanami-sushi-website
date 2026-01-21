@@ -15,6 +15,11 @@ export default function Navbar() {
   ];
 
   const closeMenu = () => {
+    // Remove all touched classes when closing menu
+    const containers = document.querySelectorAll('.mobile-nav-link-container');
+    containers.forEach(container => {
+      container.classList.remove('touched');
+    });
     setMenuOpen(false);
   };
 
@@ -42,7 +47,14 @@ export default function Navbar() {
             className="fixed top-3 right-3 sm:top-4 sm:right-4 z-50 flex flex-col justify-center items-center w-8 h-8 sm:w-10 sm:h-10 md:hidden touch-manipulation"
             type="button"
             aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => {
+              // Remove all touched classes when opening/closing menu
+              const containers = document.querySelectorAll('.mobile-nav-link-container');
+              containers.forEach(container => {
+                container.classList.remove('touched');
+              });
+              setMenuOpen(!menuOpen);
+            }}
           >
             <span className={`block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
             <span className={`mt-1 block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
@@ -103,7 +115,14 @@ export default function Navbar() {
             className="fixed top-3 right-3 sm:top-4 sm:right-4 z-50 flex flex-col justify-center items-center w-8 h-8 sm:w-10 sm:h-10 md:hidden touch-manipulation"
             type="button"
             aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => {
+              // Remove all touched classes when opening/closing menu
+              const containers = document.querySelectorAll('.mobile-nav-link-container');
+              containers.forEach(container => {
+                container.classList.remove('touched');
+              });
+              setMenuOpen(!menuOpen);
+            }}
           >
             <span className={`block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
             <span className={`mt-1 block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
@@ -158,7 +177,11 @@ export default function Navbar() {
                 style={{
                   animationDelay: menuOpen ? `${containerDelay}ms` : '0ms',
                 }}
-                onClick={() => {
+                onClick={(e) => {
+                  // Remove touched class after a short delay to show underline briefly
+                  setTimeout(() => {
+                    e.currentTarget.classList.remove('touched');
+                  }, 200);
                   closeMenu();
                 }}
                 onMouseDown={(e) => e.currentTarget.classList.add('touched')}
@@ -196,7 +219,11 @@ export default function Navbar() {
                 style={{
                   animationDelay: menuOpen ? `${containerDelay}ms` : '0ms',
                 }}
-                onClick={() => {
+                onClick={(e) => {
+                  // Remove touched class after a short delay to show underline briefly
+                  setTimeout(() => {
+                    e.currentTarget.classList.remove('touched');
+                  }, 200);
                   closeMenu();
                 }}
                 onMouseDown={(e) => e.currentTarget.classList.add('touched')}
