@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Soin+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;500;600;700&display=swap");
 
 :root {
   color-scheme: light;
@@ -8,7 +10,7 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background-color: #f5efe3;
+  background-color: #f5f0e7;
 }
 
 #root {
@@ -86,7 +88,7 @@ body {
 
 
 .hero-bg {
-  background: #f5efe3;
+  background: #f5f0e7;
 }
 
 .hero-overlay {
@@ -160,11 +162,47 @@ body {
   filter: grayscale(100%) contrast(1.1) brightness(0.95);
 }
 .home-icon-img {
-  margin-left: -35px;
+  margin-left: -70px;
+  transform: scaleX(1.15) translateX(-50px) translateY(-30px) !important;
+  transform-origin: left center;
 }
 
 @media (min-width: 768px) {
   .home-icon-img {
-    margin-left: -45px;
+    margin-left: -85px;
+    transform: scaleX(1.15) translateX(-50px) translateY(-30px) !important;
   }
+}
+
+/* Menu typography: fluid sizing across screen widths */
+.menu-title-fluid {
+  font-size: clamp(2.5rem, 2.2vw + 1.8rem, 3.5rem);
+}
+
+.menu-section-title-fluid {
+  font-size: clamp(1.65rem, 1.2vw + 1.15rem, 2.4rem);
+}
+
+.menu-item-name-fluid {
+  font-size: clamp(1.35rem, 0.6vw + 1.0rem, 1.6rem);
+}
+
+.menu-item-meta-fluid {
+  font-size: clamp(1.35rem, 0.6vw + 1.0rem, 1.6rem);
+}
+
+.menu-item-desc-fluid {
+  font-size: clamp(1.2rem, 0.45vw + 0.9rem, 1.4rem);
+}
+
+.menu-panel-title-fluid {
+  font-size: clamp(1.9rem, 1.4vw + 1.25rem, 2.7rem);
+}
+
+.menu-panel-price-fluid {
+  font-size: clamp(1.35rem, 0.8vw + 1.0rem, 1.85rem);
+}
+
+.menu-panel-desc-fluid {
+  font-size: clamp(1.25rem, 0.6vw + 1.0rem, 1.55rem);
 }

@@ -2,7 +2,7 @@ import heroCenter from "../assets/Adc5968139dfb430396934b9617937b02A.avif";
 
 export default function Home() {
   return (
-    <section className="bg-[#f7f4ef] relative min-h-screen overflow-hidden">
+    <section className="bg-[#f5f0e7] relative min-h-screen overflow-hidden">
       <div className="hero-overlay" />
       <div className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-center px-4">
         <img

@@ -5,7 +5,7 @@ export default function HoursLocation() {
   const address = "114 East Main Street, Clinton, CT 06413";
 
   return (
-    <section className="bg-[#f7f4ef] pt-24">
+    <section className="bg-[#f5f0e7] pt-24">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10">
         <div className="flex flex-col items-center gap-4 text-center">
           <img
@@ -75,12 +75,15 @@ export default function HoursLocation() {
         </div>
       </div>
       <div className="w-full overflow-hidden border-t border-b border-black/10 bg-[#d9d6d1]">
-        <img
-          src={mapImage}
-          alt={`Map to ${address}`}
-          className="map-image w-full h-auto grayscale"
-          style={{ filter: 'grayscale(100%) contrast(1.2) brightness(0.9)', display: 'block' }}
-        />
+          <img
+            src={mapImage}
+            alt={`Map to ${address}`}
+            className="map-image w-full h-auto grayscale"
+            style={{
+              filter: "grayscale(100%) contrast(1.2) brightness(0.9)",
+              display: "block",
+            }}
+          />
       </div>
     </section>
   );

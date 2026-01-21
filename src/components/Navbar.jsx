@@ -9,8 +9,8 @@ export default function Navbar() {
   
   const navItems = [
     { label: "Hours & Location", to: "/hours" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "About", href: "#about" },
+    { label: "Gallery", to: "/gallery" },
+    { label: "About", to: "/about" },
     { label: "Menu", to: "/menu" },
   ];
 
@@ -79,9 +79,7 @@ export default function Navbar() {
                   margin: 0, 
                   padding: 0, 
                   display: 'block',
-                  marginRight: 0,
-                  transform: 'scaleX(1.15)',
-                  transformOrigin: 'left center'
+                  marginRight: 0
                 }}
               />
             </Link>
@@ -133,7 +131,7 @@ export default function Navbar() {
         />
       )}
       <aside
-        className={`fixed left-0 top-0 z-30 h-full w-64 bg-[#f7f4ef] px-6 py-8 text-black transition-transform md:hidden ${
+        className={`fixed left-0 top-0 z-30 h-full w-64 bg-[#f5f0e7] px-6 py-8 text-black transition-transform md:hidden ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
