@@ -24,14 +24,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000;
+  background: #f4eadc;
   animation: introFadeOut 600ms ease forwards;
   animation-delay: 2900ms;
 }
 
 .intro-text {
   text-align: center;
-  color: #e6e6e6;
+  color: #8A0403;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   font-family: "Cormorant Garamond", "Times New Roman", Georgia, serif;
