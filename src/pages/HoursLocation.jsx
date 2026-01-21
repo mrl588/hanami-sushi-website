@@ -5,7 +5,7 @@ export default function HoursLocation() {
   const address = "114 East Main Street, Clinton, CT 06413";
 
   return (
-    <section className="bg-[#f5f0e7] pt-24">
+    <section className="bg-[#f4eadc] pt-24">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10">
         <div className="flex flex-col items-center gap-4 text-center">
           <img

@@ -342,7 +342,7 @@ export default function Menu() {
   };
 
   return (
-    <section className="bg-[#f5f0e7] pt-24 relative">
+    <section className="bg-[#f4eadc] pt-24 relative">
       <div className="mx-auto w-[70%] px-4 py-10">
         <div className="flex flex-col items-center gap-6 text-center mb-12">
           <img
@@ -463,7 +463,7 @@ export default function Menu() {
             className="fixed inset-0 bg-black/40 z-40"
             onClick={closeSidePanel}
           />
-          <div className="fixed right-0 top-0 h-full w-full md:w-96 bg-[#f5f0e7] z-50 shadow-2xl overflow-y-auto">
+          <div className="fixed right-0 top-0 h-full w-full md:w-96 bg-[#f4eadc] z-50 shadow-2xl overflow-y-auto">
             <div className="p-6">
               <button
                 onClick={closeSidePanel}

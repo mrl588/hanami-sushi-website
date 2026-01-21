@@ -1,23 +1,29 @@
-import hanamiLogo from "../assets/Hanami_Logo_Inverted.jpg";
 import redFish from "../assets/redfishtrans.png";
-import heroAvif from "../assets/Adc5968139dfb430396934b9617937b02A.avif";
-import mapImage from "../assets/map.png";
+import gallery1 from "../assets/Gallery1.jpg";
+import gallery2 from "../assets/Gallery2.jpg";
+import gallery3 from "../assets/Gallery3.jpg";
+import gallery4 from "../assets/Gallery4.jpg";
+import gallery5 from "../assets/Gallery5.jpg";
+import gallery6 from "../assets/Gallery6.jpg";
+import gallery7 from "../assets/Gallery7.jpg";
+import gallery8 from "../assets/Gallery8.jpg";
+import gallery9 from "../assets/Gallery9.jpg";
 
-const baseImages = [
-  { src: hanamiLogo, alt: "Hanami logo" },
-  { src: redFish, alt: "Red fish art" },
-  { src: heroAvif, alt: "Hanami hero" },
-  { src: mapImage, alt: "Location map" },
+const galleryImages = [
+  { id: 1, src: gallery1, alt: "Gallery image 1" },
+  { id: 2, src: gallery2, alt: "Gallery image 2" },
+  { id: 3, src: gallery3, alt: "Gallery image 3" },
+  { id: 4, src: gallery4, alt: "Gallery image 4" },
+  { id: 5, src: gallery5, alt: "Gallery image 5" },
+  { id: 6, src: gallery6, alt: "Gallery image 6" },
+  { id: 7, src: gallery7, alt: "Gallery image 7" },
+  { id: 8, src: gallery8, alt: "Gallery image 8" },
+  { id: 9, src: gallery9, alt: "Gallery image 9" },
 ];
-
-const galleryImages = Array.from({ length: 9 }, (_, i) => ({
-  ...baseImages[i % baseImages.length],
-  id: i,
-}));
 
 export default function Gallery() {
   return (
-    <section className="bg-[#f5f0e7] pt-24">
+    <section className="bg-[#f4eadc] pt-24">
       <div className="mx-auto w-[95%] py-8 md:py-12">
         <div className="flex flex-col items-center gap-4 text-center mb-8 md:mb-12">
           <img

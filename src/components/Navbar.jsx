@@ -131,7 +131,7 @@ export default function Navbar() {
         />
       )}
       <aside
-        className={`fixed left-0 top-0 z-30 h-full w-64 bg-[#f5f0e7] px-6 py-8 text-black transition-transform md:hidden ${
+        className={`fixed left-0 top-0 z-30 h-full w-64 bg-[#f4eadc] px-6 py-8 text-black transition-transform md:hidden ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

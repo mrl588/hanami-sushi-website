@@ -20,7 +20,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#f5f0e7] text-slate-900">
+    <div className="flex min-h-screen flex-col bg-[#f4eadc] text-slate-900">
       {!introDone && <IntroOverlay />}
       <Navbar />
       <main className="flex-1">

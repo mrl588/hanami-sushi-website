@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
-    <footer className="border-t shrink-0">
+    <footer className="shrink-0 bg-[#6A0302] text-white">
       <div className="mx-auto flex max-w-6xl items-center justify-center gap-6 px-4 py-4">
         <a
           href="https://www.instagram.com/hanamijapanese/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
-          className="transition-transform duration-300 hover:scale-110 text-black"
+          className="transition-transform duration-300 hover:scale-110"
           aria-label="Instagram"
         >
           <svg
@@ -22,7 +22,7 @@ export default function Footer() {
           href="https://www.facebook.com/hanamict/"
           target="_blank"
           rel="noopener noreferrer"
-          className="transition-transform duration-300 hover:scale-110 text-black"
+          className="transition-transform duration-300 hover:scale-110"
           aria-label="Facebook"
         >
           <svg

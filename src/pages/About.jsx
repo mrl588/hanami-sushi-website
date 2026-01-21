@@ -2,7 +2,7 @@ import fishIcon from "../assets/redfishtrans.png";
 
 export default function About() {
   return (
-    <section className="bg-[#f5f0e7] pt-24">
+    <section className="bg-[#f4eadc] pt-24">
       <div className="mx-auto w-[70%] px-4 py-12">
         <div className="flex flex-col items-center gap-6 text-center">
           <img
