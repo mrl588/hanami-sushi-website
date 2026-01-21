@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import fishIcon from "../assets/redfishtrans.png";
+import tunaImage from "../assets/tuna.jpg";
 
 const menuByType = {
   dinner: [
@@ -22,7 +23,7 @@ const menuByType = {
           name: "Tuna Sashimi",
           price: "$16",
           description: "Premium bluefin tuna, 5 pieces",
-          image: fishIcon,
+          image: tunaImage,
         },
         {
           name: "Yellowtail Sashimi",
