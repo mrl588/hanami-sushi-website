@@ -247,6 +247,34 @@ body {
   }
 }
 
+/* Mobile menu overlay slide-in animation */
+.mobile-menu-overlay {
+  transform: translateX(-100%);
+  transition: transform 1000ms ease-out;
+  opacity: 1;
+  pointer-events: none;
+  visibility: visible;
+}
+
+.mobile-menu-overlay.mobile-menu-open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.mobile-menu-overlay.mobile-menu-closed {
+  transform: translateX(-100%);
+  opacity: 1;
+  pointer-events: none;
+  visibility: visible;
+}
+
+/* Mobile menu footer */
+.mobile-menu-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 /* Mobile navigation animations */
 .mobile-nav-link-container {
   opacity: 0;

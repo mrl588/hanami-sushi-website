@@ -3,7 +3,7 @@ import mapImage from "../assets/map.png";
 import fishIcon from "../assets/redfishtrans.png";
 
 export default function HoursLocation() {
-  const address = "114 East Main Street, Clinton, CT 06413";
+  const address = "114 East Main St, Clinton, CT 06413";
   const pageRef = usePageAnimation(100, 120);
 
   return (
@@ -34,13 +34,13 @@ export default function HoursLocation() {
                 <p className="text-base font-medium uppercase tracking-[0.4em] text-black">
                   Our Location
                 </p>
-                <p className="mt-3 text-sm uppercase tracking-[0.2em]">
-                  114 East Main Street
+                <p className="mt-3 text-sm tracking-[0.2em]">
+                  114 East Main St
                 </p>
-                <p className="mt-2 text-sm uppercase tracking-[0.2em]">
+                <p className="mt-2 text-sm tracking-[0.2em]">
                   Clinton, CT 06413
                 </p>
-                <p className="mt-2 text-sm uppercase tracking-[0.2em]">
+                <p className="mt-2 text-sm tracking-[0.2em]">
                   860.664.9268
                 </p>
               </div>
