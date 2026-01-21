@@ -15,11 +15,26 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="absolute inset-x-0 top-0 z-20">
+    <header className="relative z-20 text-black">
+      <div className="bg-[#6A0302] text-[#f4eadc]">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-4 py-2 text-[0.65rem] uppercase tracking-[0.2em] sm:flex-row sm:justify-center sm:gap-6">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=114%20East%20Main%20Street%2C%20Clinton%2C%20CT%2006413"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition hover:text-white"
+          >
+            114 East Main Street • Clinton, CT 06413
+          </a>
+          <a href="tel:+18606649268" className="transition hover:text-white">
+            860.664.9268
+          </a>
+        </div>
+      </div>
       {isHomePage ? (
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pb-4 pt-6 text-black">
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pb-4 pt-6">
           <button
-            className="absolute left-4 top-6 md:hidden"
+            className="absolute left-4 top-8 md:hidden"
             type="button"
             aria-label="Open navigation"
             onClick={() => setMenuOpen(true)}
@@ -29,14 +44,7 @@ export default function Navbar() {
             <span className="mt-1 block h-0.5 w-6 bg-black" />
           </button>
 
-          <Link
-            to="/"
-            className="brand-title text-2xl uppercase tracking-[0.4em]"
-          >
-            Hanami
-          </Link>
-
-          <nav className="mt-6 hidden justify-center gap-10 text-xs uppercase tracking-[0.3em] md:flex md:text-sm">
+          <nav className="hidden justify-center gap-10 text-xs uppercase tracking-[0.3em] md:flex md:text-sm">
             {navItems.map((item) =>
               item.to ? (
                 <NavLink
@@ -61,9 +69,9 @@ export default function Navbar() {
           </nav>
         </div>
       ) : (
-        <div className="relative w-full pb-4 pt-6 text-black">
+        <div className="relative w-full pb-4 pt-6">
           <div 
-            className="fixed top-6 left-0 z-10"
+            className="fixed top-8 left-0 z-10"
             style={{ margin: 0, padding: 0, overflow: 'hidden', width: 'auto' }}
           >
             <Link
@@ -86,7 +94,7 @@ export default function Navbar() {
           </div>
           
           <button
-            className="absolute left-40 top-8 md:left-48 md:top-10 md:hidden"
+            className="absolute left-40 top-10 md:left-48 md:top-12 md:hidden"
             type="button"
             aria-label="Open navigation"
             onClick={() => setMenuOpen(true)}

@@ -43,15 +43,11 @@ body {
 }
 
 .nav-link {
-  color: #111111;
+  color: inherit;
   text-decoration: none;
   position: relative;
   display: inline-block;
   padding-bottom: 6px;
-}
-
-.nav-link:hover {
-  color: #111111;
 }
 
 .nav-link::after {
@@ -61,7 +57,7 @@ body {
   bottom: 0;
   height: 1px;
   width: 0;
-  background: #111111;
+  background: currentColor;
   transition: width 320ms ease, left 320ms ease;
 }
 
