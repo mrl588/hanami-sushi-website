@@ -143,50 +143,91 @@ export default function Navbar() {
         }`}
         style={{ display: menuOpen ? 'block' : 'none' }}
       >
-        {/* Close button (X) at top right, scales with device */}
-        <button
-          className="fixed top-3 right-3 sm:top-4 sm:right-4 z-50 flex flex-col justify-center items-center w-8 h-8 sm:w-10 sm:h-10 touch-manipulation"
-          type="button"
-          aria-label="Close navigation"
-          onClick={closeMenu}
-        >
-          <span className="block h-0.5 w-5 sm:w-6 bg-black rotate-45 translate-y-1.5" />
-          <span className="block h-0.5 w-5 sm:w-6 bg-black -rotate-45 -translate-y-1.5" />
-        </button>
-
         {/* Navigation links */}
         <nav className="flex flex-col items-center justify-center h-full w-full px-4 py-20">
-          {navItems.map((item, index) =>
-            item.to ? (
+          {navItems.map((item, index) => {
+            const letters = item.label.split('');
+            const containerDelay = index * 150;
+            const letterStartDelay = containerDelay + 400; // Start letters after container animation completes
+            
+            return item.to ? (
               <Link
                 key={item.label}
                 to={item.to}
-                className={`mobile-nav-link text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.3em] font-medium text-black mb-6 sm:mb-8 ${
-                  menuOpen ? 'mobile-nav-link-visible' : ''
-                }`}
+                className="mobile-nav-link-container mb-6 sm:mb-8"
                 style={{
-                  animationDelay: menuOpen ? `${index * 100}ms` : '0ms',
+                  animationDelay: menuOpen ? `${containerDelay}ms` : '0ms',
                 }}
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                }}
+                onMouseDown={(e) => e.currentTarget.classList.add('touched')}
+                onMouseUp={(e) => {
+                  setTimeout(() => e.currentTarget.classList.remove('touched'), 300);
+                }}
+                onTouchStart={(e) => e.currentTarget.classList.add('touched')}
+                onTouchEnd={(e) => {
+                  setTimeout(() => e.currentTarget.classList.remove('touched'), 300);
+                }}
               >
-                {item.label}
+                <span className="mobile-nav-link text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.3em] font-medium text-black inline-block">
+                  {letters.map((letter, letterIndex) => (
+                    <span
+                      key={letterIndex}
+                      className={`mobile-nav-letter ${
+                        menuOpen ? 'mobile-nav-letter-visible' : ''
+                      }`}
+                      style={{
+                        animationDelay: menuOpen 
+                          ? `${letterStartDelay + letterIndex * 30}ms` 
+                          : '0ms',
+                      }}
+                    >
+                      {letter === ' ' ? '\u00A0' : letter}
+                    </span>
+                  ))}
+                </span>
               </Link>
             ) : (
               <a
                 key={item.label}
                 href={item.href}
-                className={`mobile-nav-link text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.3em] font-medium text-black mb-6 sm:mb-8 ${
-                  menuOpen ? 'mobile-nav-link-visible' : ''
-                }`}
+                className="mobile-nav-link-container mb-6 sm:mb-8"
                 style={{
-                  animationDelay: menuOpen ? `${index * 100}ms` : '0ms',
+                  animationDelay: menuOpen ? `${containerDelay}ms` : '0ms',
                 }}
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                }}
+                onMouseDown={(e) => e.currentTarget.classList.add('touched')}
+                onMouseUp={(e) => {
+                  setTimeout(() => e.currentTarget.classList.remove('touched'), 300);
+                }}
+                onTouchStart={(e) => e.currentTarget.classList.add('touched')}
+                onTouchEnd={(e) => {
+                  setTimeout(() => e.currentTarget.classList.remove('touched'), 300);
+                }}
               >
-                {item.label}
+                <span className="mobile-nav-link text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.3em] font-medium text-black inline-block">
+                  {letters.map((letter, letterIndex) => (
+                    <span
+                      key={letterIndex}
+                      className={`mobile-nav-letter ${
+                        menuOpen ? 'mobile-nav-letter-visible' : ''
+                      }`}
+                      style={{
+                        animationDelay: menuOpen 
+                          ? `${letterStartDelay + letterIndex * 30}ms` 
+                          : '0ms',
+                      }}
+                    >
+                      {letter === ' ' ? '\u00A0' : letter}
+                    </span>
+                  ))}
+                </span>
               </a>
-            )
-          )}
+            );
+          })}
         </nav>
       </div>
     </header>
