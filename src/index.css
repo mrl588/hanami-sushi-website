@@ -203,6 +203,37 @@ body {
   font-size: clamp(1.25rem, 0.6vw + 1.0rem, 1.55rem);
 }
 
+/* Menu side panel slide animations */
+.menu-panel {
+  transform: translateX(100%);
+}
+
+.menu-panel-open {
+  animation: menuPanelIn 400ms ease forwards;
+}
+
+.menu-panel-closing {
+  animation: menuPanelOut 400ms ease forwards;
+}
+
+@keyframes menuPanelIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes menuPanelOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
 /* Page load animations */
 .page-fade-up {
   animation: pageFadeUp 800ms ease forwards;

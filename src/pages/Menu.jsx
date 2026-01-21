@@ -314,6 +314,7 @@ export default function Menu() {
   const [activeMenu, setActiveMenu] = useState("dinner");
   const menuSections = useMemo(() => menuByType[activeMenu] ?? [], [activeMenu]);
   const pageRef = usePageAnimation(100, 100);
+  const [panelClosing, setPanelClosing] = useState(false);
 
   const getAllOpen = (sections) =>
     Object.fromEntries((sections ?? []).map((s) => [s.title, true]));
@@ -337,11 +338,17 @@ export default function Menu() {
   };
 
   const handleItemClick = (item) => {
+    setPanelClosing(false);
     setSelectedItem(item);
   };
 
   const closeSidePanel = () => {
-    setSelectedItem(null);
+    if (panelClosing) return;
+    setPanelClosing(true);
+    setTimeout(() => {
+      setSelectedItem(null);
+      setPanelClosing(false);
+    }, 400);
   };
 
   return (
@@ -466,11 +473,15 @@ export default function Menu() {
             className="fixed inset-0 bg-black/40 z-40"
             onClick={closeSidePanel}
           />
-          <div className="fixed right-0 top-0 h-full w-full md:w-96 bg-[#f4eadc] z-50 shadow-2xl overflow-y-auto">
+          <div
+            className={`fixed right-0 top-0 h-full w-full md:w-96 bg-[#f4eadc] z-50 shadow-2xl overflow-y-auto menu-panel ${
+              panelClosing ? "menu-panel-closing" : "menu-panel-open"
+            }`}
+          >
             <div className="p-6">
               <button
                 onClick={closeSidePanel}
-                className="mb-6 text-2xl text-black hover:opacity-70"
+                className="mb-6 ml-auto block text-2xl text-black hover:opacity-70"
               >
                 ×
               </button>
