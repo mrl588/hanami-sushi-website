@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { usePageAnimation } from "../hooks/usePageAnimation";
 import fishIcon from "../assets/redfishtrans.png";
 import tunaImage from "../assets/tuna.jpg";
 
@@ -312,6 +313,7 @@ const menuByType = {
 export default function Menu() {
   const [activeMenu, setActiveMenu] = useState("dinner");
   const menuSections = useMemo(() => menuByType[activeMenu] ?? [], [activeMenu]);
+  const pageRef = usePageAnimation(100, 100);
 
   const getAllOpen = (sections) =>
     Object.fromEntries((sections ?? []).map((s) => [s.title, true]));
@@ -343,21 +345,21 @@ export default function Menu() {
   };
 
   return (
-    <section className="bg-[#f4eadc] pt-24 relative">
+    <section ref={pageRef} className="bg-[#f4eadc] pt-24 relative">
       <div className="mx-auto w-[70%] px-4 py-10">
         <div className="flex flex-col items-center gap-6 text-center mb-12">
           <img
             src={fishIcon}
             alt="Hanami fish icon"
-            className="h-32 w-auto md:h-40"
+            className="page-fade-up h-32 w-auto md:h-40"
           />
           <h1
-            className="menu-title-fluid uppercase tracking-[0.4em] text-black"
+            className="page-fade-up menu-title-fluid uppercase tracking-[0.4em] text-black"
             style={{ fontFamily: '"Aleo", serif' }}
           >
             Menu
           </h1>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="page-fade-up flex flex-wrap justify-center gap-3">
             <button
               type="button"
               onClick={() => setActiveMenu("lunch")}
@@ -395,11 +397,11 @@ export default function Menu() {
         </div>
 
         <div className="space-y-12">
-          {menuSections.map((section) => (
+          {menuSections.map((section, sectionIndex) => (
             <div key={section.title} className="space-y-4">
               <button
                 onClick={() => toggleSection(section.title)}
-                className="w-full flex items-center justify-center relative pb-4 border-b border-black/20"
+                className="page-fade-up w-full flex items-center justify-center relative pb-4 border-b border-black/20"
               >
                 <h2
                   className="menu-section-title-fluid font-normal text-black"
@@ -419,7 +421,7 @@ export default function Menu() {
                       <button
                         key={index}
                         onClick={() => handleItemClick(item)}
-                        className="text-left space-y-1 hover:opacity-80 transition-opacity"
+                        className="page-fade-up text-left space-y-1 hover:opacity-80 transition-opacity"
                       >
                         <div className="flex items-start justify-between">
                           <h3

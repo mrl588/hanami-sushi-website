@@ -1,24 +1,26 @@
+import { usePageAnimation } from "../hooks/usePageAnimation";
 import mapImage from "../assets/map.png";
 import fishIcon from "../assets/redfishtrans.png";
 
 export default function HoursLocation() {
   const address = "114 East Main Street, Clinton, CT 06413";
+  const pageRef = usePageAnimation(100, 120);
 
   return (
-    <section className="bg-[#f4eadc] pt-24">
+    <section ref={pageRef} className="bg-[#f4eadc] pt-24">
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10">
         <div className="flex flex-col items-center gap-4 text-center">
           <img
             src={fishIcon}
             alt="Hanami fish icon"
-            className="h-32 w-auto md:h-40"
+            className="page-fade-up h-32 w-auto md:h-40"
           />
-          <h1 className="brand-title text-2xl uppercase tracking-[0.4em] text-black md:text-3xl">
+          <h1 className="page-fade-up brand-title text-2xl uppercase tracking-[0.4em] text-black md:text-3xl">
             Hours & Location
           </h1>
         </div>
         <div className="flex flex-col gap-8 md:flex-row md:justify-center">
-          <div className="flex-1 text-center text-black md:max-w-md">
+          <div className="page-fade-up flex-1 text-center text-black md:max-w-md">
             <div className="flex flex-col gap-8">
               <div>
                 <p className="text-base font-medium uppercase tracking-[0.4em] text-black">
@@ -44,7 +46,7 @@ export default function HoursLocation() {
               </div>
             </div>
           </div>
-          <div className="flex-1 text-center text-black md:max-w-md">
+          <div className="page-fade-up flex-1 text-center text-black md:max-w-md">
             <div className="flex flex-col gap-8">
               <div>
                 <p className="text-base font-medium uppercase tracking-[0.4em] text-black">
@@ -74,7 +76,7 @@ export default function HoursLocation() {
           </div>
         </div>
       </div>
-      <div className="w-full overflow-hidden border-t border-b border-black/10 bg-[#d9d6d1]">
+      <div className="page-fade-up w-full overflow-hidden border-t border-b border-black/10 bg-[#d9d6d1]">
           <img
             src={mapImage}
             alt={`Map to ${address}`}

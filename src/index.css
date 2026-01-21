@@ -202,3 +202,73 @@ body {
 .menu-panel-desc-fluid {
   font-size: clamp(1.25rem, 0.6vw + 1.0rem, 1.55rem);
 }
+
+/* Page load animations */
+.page-fade-up {
+  animation: pageFadeUp 800ms ease forwards;
+  opacity: 0;
+}
+
+@keyframes pageFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gallery fade transition - crossfade effect */
+.gallery-fade-in {
+  animation: galleryFadeIn 800ms ease-in-out;
+}
+
+.gallery-fade-out {
+  animation: galleryFadeOut 800ms ease-in-out;
+}
+
+@keyframes galleryFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes galleryFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Mobile navigation animations */
+.mobile-nav-link {
+  opacity: 0;
+  transform: translateY(-20px) translateX(-30px);
+  transition: none;
+}
+
+.mobile-nav-link-visible {
+  animation: mobileNavLinkIn 600ms ease-out forwards;
+}
+
+@keyframes mobileNavLinkIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(-30px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(0) translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}

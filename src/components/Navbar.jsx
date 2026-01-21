@@ -14,6 +14,10 @@ export default function Navbar() {
     { label: "Menu", to: "/menu" },
   ];
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header className="relative z-20 text-black">
       <div className="bg-[#6A0302] text-[#f4eadc]">
@@ -33,15 +37,16 @@ export default function Navbar() {
       </div>
       {isHomePage ? (
         <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 pb-4 pt-6">
+          {/* Mobile hamburger/X button - top right, scales with device */}
           <button
-            className="absolute left-4 top-8 md:hidden"
+            className="fixed top-3 right-3 sm:top-4 sm:right-4 z-50 flex flex-col justify-center items-center w-8 h-8 sm:w-10 sm:h-10 md:hidden touch-manipulation"
             type="button"
-            aria-label="Open navigation"
-            onClick={() => setMenuOpen(true)}
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            <span className="block h-0.5 w-6 bg-black" />
-            <span className="mt-1 block h-0.5 w-6 bg-black" />
-            <span className="mt-1 block h-0.5 w-6 bg-black" />
+            <span className={`block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+            <span className={`mt-1 block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`mt-1 block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
           </button>
 
           <nav className="hidden justify-center gap-10 text-xs uppercase tracking-[0.3em] md:flex md:text-sm">
@@ -93,15 +98,16 @@ export default function Navbar() {
             </Link>
           </div>
           
+          {/* Mobile hamburger/X button - top right, scales with device */}
           <button
-            className="absolute left-40 top-10 md:left-48 md:top-12 md:hidden"
+            className="fixed top-3 right-3 sm:top-4 sm:right-4 z-50 flex flex-col justify-center items-center w-8 h-8 sm:w-10 sm:h-10 md:hidden touch-manipulation"
             type="button"
-            aria-label="Open navigation"
-            onClick={() => setMenuOpen(true)}
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            <span className="block h-0.5 w-6 bg-black" />
-            <span className="mt-1 block h-0.5 w-6 bg-black" />
-            <span className="mt-1 block h-0.5 w-6 bg-black" />
+            <span className={`block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+            <span className={`mt-1 block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`mt-1 block h-0.5 w-5 sm:w-6 bg-black transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
           </button>
 
           <nav className="absolute right-12 top-6 hidden gap-6 text-xs uppercase tracking-[0.3em] md:flex md:gap-8 md:right-12 md:text-sm">
@@ -130,36 +136,38 @@ export default function Navbar() {
         </div>
       )}
 
-      {menuOpen && (
+      {/* Mobile menu overlay - full width */}
+      <div
+        className={`fixed inset-0 z-40 bg-[#f4eadc] md:hidden ${
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        style={{ display: menuOpen ? 'block' : 'none' }}
+      >
+        {/* Close button (X) at top right, scales with device */}
         <button
-          className="fixed inset-0 z-20 bg-black/40 md:hidden"
+          className="fixed top-3 right-3 sm:top-4 sm:right-4 z-50 flex flex-col justify-center items-center w-8 h-8 sm:w-10 sm:h-10 touch-manipulation"
           type="button"
           aria-label="Close navigation"
-          onClick={() => setMenuOpen(false)}
-        />
-      )}
-      <aside
-        className={`fixed left-0 top-0 z-30 h-full w-64 bg-[#f4eadc] px-6 py-8 text-black transition-transform md:hidden ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="mb-8 flex items-center justify-end">
-          <button
-            type="button"
-            aria-label="Close navigation"
-            onClick={() => setMenuOpen(false)}
-          >
-            ✕
-          </button>
-        </div>
-        <nav className="flex flex-col gap-5 text-sm uppercase tracking-[0.25em] text-black/80">
-          {navItems.map((item) =>
+          onClick={closeMenu}
+        >
+          <span className="block h-0.5 w-5 sm:w-6 bg-black rotate-45 translate-y-1.5" />
+          <span className="block h-0.5 w-5 sm:w-6 bg-black -rotate-45 -translate-y-1.5" />
+        </button>
+
+        {/* Navigation links */}
+        <nav className="flex flex-col items-center justify-center h-full w-full px-4 py-20">
+          {navItems.map((item, index) =>
             item.to ? (
               <Link
                 key={item.label}
                 to={item.to}
-                className="nav-link font-medium"
-                onClick={() => setMenuOpen(false)}
+                className={`mobile-nav-link text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.3em] font-medium text-black mb-6 sm:mb-8 ${
+                  menuOpen ? 'mobile-nav-link-visible' : ''
+                }`}
+                style={{
+                  animationDelay: menuOpen ? `${index * 100}ms` : '0ms',
+                }}
+                onClick={closeMenu}
               >
                 {item.label}
               </Link>
@@ -167,15 +175,20 @@ export default function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="nav-link font-medium"
-                onClick={() => setMenuOpen(false)}
+                className={`mobile-nav-link text-xl sm:text-2xl md:text-3xl uppercase tracking-[0.3em] font-medium text-black mb-6 sm:mb-8 ${
+                  menuOpen ? 'mobile-nav-link-visible' : ''
+                }`}
+                style={{
+                  animationDelay: menuOpen ? `${index * 100}ms` : '0ms',
+                }}
+                onClick={closeMenu}
               >
                 {item.label}
               </a>
             )
           )}
         </nav>
-      </aside>
+      </div>
     </header>
   );
 }
