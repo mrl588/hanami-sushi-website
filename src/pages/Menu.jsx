@@ -432,7 +432,7 @@ export default function Menu() {
                       >
                         <div className="flex items-start justify-between">
                           <h3
-                            className="menu-item-name-fluid font-medium"
+                            className="menu-item-name-fluid font-medium menu-item-underline"
                             style={{
                               color: "#8A0403",
                               fontFamily:

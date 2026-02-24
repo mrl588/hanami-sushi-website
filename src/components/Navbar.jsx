@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header className="relative z-20 text-black">
       <div className="bg-[#6A0302] text-[#f4eadc]">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-4 py-2 text-[0.65rem] tracking-[0.2em] sm:flex-row sm:justify-center sm:gap-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-1 px-4 py-2 text-xs sm:text-sm tracking-[0.2em] sm:flex-row sm:justify-center sm:gap-6">
           <a
             href="https://www.google.com/maps/search/?api=1&query=114%20East%20Main%20St%2C%20Clinton%2C%20CT%2006413"
             target="_blank"

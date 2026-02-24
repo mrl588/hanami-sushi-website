@@ -154,7 +154,7 @@ export default function Home() {
   return (
     <section ref={pageRef} className="bg-[#f4eadc] relative min-h-screen overflow-hidden">
       <div className="hero-overlay" />
-      <div className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-center px-4">
+      <div className="relative mx-auto flex min-h-[55vh] sm:min-h-[70vh] md:min-h-screen max-w-6xl items-center justify-center px-4">
         <img
           src={heroCenter}
           alt="Hanami hero"
@@ -162,15 +162,16 @@ export default function Home() {
           loading="eager"
         />
       </div>
-      <div className="mx-auto w-[95%] pb-12 -mt-60">
+      <div className="mx-auto w-[95%] pb-12 -mt-16 sm:-mt-8 md:mt-20 lg:-mt-20 xl:-mt-48">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
           <div className="space-y-3 page-fade-up">
-            <div className="relative overflow-hidden rounded-sm bg-[#e9e6df] aspect-square">
+            <div className="relative overflow-hidden rounded-sm bg-[#e9e6df] aspect-[1/1.08] sm:aspect-square">
               {leftIsTransitioning && (
                 <img
                   src={leftGalleryImages[leftPrevIndex]}
                   alt={`Gallery slide ${leftPrevIndex + 1}`}
                   className="gallery-fade-out absolute inset-0 h-full w-full object-cover"
+                  style={{ objectPosition: "center bottom" }}
                 />
               )}
               <img
@@ -178,6 +179,7 @@ export default function Home() {
                 src={leftGalleryImages[leftIndex]}
                 alt={`Gallery slide ${leftIndex + 1}`}
                 className="gallery-fade-in absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: "center bottom" }}
               />
               <button
                 type="button"
